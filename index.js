@@ -12,7 +12,8 @@ module.exports = function (source) {
   var options = (this.hasOwnProperty("options") && (typeof this.options['ejs-compiled-loader'] === 'object')) ? this.options['ejs-compiled-loader'] : {};
   
   // webpack4: query 
-  var query = (this.hasOwnProperty("query")) ? (typeof this.query === 'object') ? this.query : utils.parseQuery(this.query) : {};
+  var query = (this.hasOwnProperty("query") && this.query !== '') ? (typeof this.query === 'object') ? this.query : utils.parseQuery(this.query) : {};
+
   
   // merge opts from defaults,opts and query 
   var opts = merge({
